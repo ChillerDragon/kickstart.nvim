@@ -792,7 +792,10 @@ require('lazy').setup {
         ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
         -- Autoinstall languages that are not installed
         auto_install = true,
-        highlight = { enable = true },
+        highlight = {
+          enable = true,
+          disable = { 'bash' }
+        },
         indent = { enable = true },
       }
 
