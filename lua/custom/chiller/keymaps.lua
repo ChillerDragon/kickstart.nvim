@@ -22,9 +22,11 @@ vim.keymap.set('n', 'c', function()
   elseif vim.bo.filetype == 'sh' then
     run_cmd = '!bash %'
   elseif vim.bo.filetype == 'c' then
-    run_cmd = '!gcc -ggdb % -o %:r && ./%:r'
+    run_cmd = '!gcc -ggdb % -o %:r && printf "\\n" && ./%:r'
   elseif vim.bo.filetype == 'cpp' then
-    run_cmd = '!g++ -ggdb % -o %:r && ./%:r'
+    run_cmd = '!g++ -ggdb % -o %:r && printf "\\n" && ./%:r'
+  elseif vim.bo.filetype == 'haskell' then
+    run_cmd = '!ghc % && printf "\\n" && ./%:r'
   end
   if run_cmd ~= nil then
     vim.cmd(run_cmd)
