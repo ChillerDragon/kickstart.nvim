@@ -18,6 +18,8 @@ vim.keymap.set('n', 'c', function()
     run_cmd = 'ruby %'
   elseif vim.bo.filetype == 'javascript' then
     run_cmd = 'node %'
+  elseif vim.bo.filetype == 'typescript' then
+    run_cmd = 'npx ts-node %'
   elseif vim.bo.filetype == 'python' then
     run_cmd = 'PYTHONPATH=. python %'
     if string.match(filename, "tests/(.*)_test%.py$") then
