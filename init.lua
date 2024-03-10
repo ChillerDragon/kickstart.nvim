@@ -356,6 +356,7 @@ require('lazy').setup {
             '^node_modules',
             '^.git',
             '^.mypy_cache',
+            '^.ruff_cache',
             '^.pytest_cache',
             '^venv/share/python.wheels/.*.whl',
             '^venv/lib/.*site.packages',
