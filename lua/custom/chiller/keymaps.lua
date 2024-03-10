@@ -11,6 +11,7 @@ vim.keymap.set('n', 'c', function()
   --       if the current file path is funny it should not break
   --       or do anything unexpected
   local run_cmd = nil
+  local filename = vim.fn.expand('%')
   if vim.bo.filetype == 'lua' then
     run_cmd = 'lua %'
   elseif vim.bo.filetype == 'ruby' then
@@ -18,7 +19,10 @@ vim.keymap.set('n', 'c', function()
   elseif vim.bo.filetype == 'javascript' then
     run_cmd = 'node %'
   elseif vim.bo.filetype == 'python' then
-    run_cmd = 'python %'
+    run_cmd = 'PYTHONPATH=. python %'
+    if string.match(filename, "tests/(.*)_test%.py$") then
+      run_cmd = 'python -m pytest %'
+    end
   elseif vim.bo.filetype == 'sh' then
     run_cmd = 'bash %'
   elseif vim.bo.filetype == 'c' then
