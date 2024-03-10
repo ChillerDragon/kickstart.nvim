@@ -352,6 +352,10 @@ require('lazy').setup {
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
+          file_ignore_patterns = {
+            '^node_modules',
+            '^.git'
+          },
           mappings = {
             i = { ['<C-u>'] = false },
           },
@@ -374,11 +378,14 @@ require('lazy').setup {
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', function ()
         -- chiller
-        -- https://github.com/nvim-telescope/telescope.nvim/blob/7472420f8734c710bd7009081cef9b97f08a3821/doc/telescope.txt#L640-L643
-        -- I FUCKING PUT .git in my global .gitignore
-        -- and then it kinda worked how i want it
-        -- i want telescope to find .gitigore, .github/*, .gitlab/* but not .git/*
-        builtin.find_files({hidden=true})
+        --  i want telescope to find .gitigore, .github/*, .gitlab/* but not .git/*
+        builtin.find_files({
+          -- show hidden files
+          hidden = true,
+          -- show files even if they are in gitignore
+          -- i use the file_ignore_patterns instead check it further up
+          no_ignore = true,
+        })
       end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
