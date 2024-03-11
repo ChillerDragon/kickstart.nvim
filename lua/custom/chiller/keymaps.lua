@@ -4,6 +4,15 @@ vim.keymap.set('n', '<leader>ft', function()
 end, { desc = '[F]ile [T]tree' })
 
 
+vim.keymap.set('n', '<C-k><C-t>', function()
+  -- TODO: use telescope to pick themes
+  if vim.o.background == 'dark' then
+    vim.o.background = 'light'
+  else
+    vim.o.background = 'dark'
+  end
+end, { desc = 'switch theme (same keybind as vscode)' })
+
 vim.keymap.set('n', 'c', function()
   -- TODO: in vanilla vim i used shellescape('%')
   --       instead of plain %
