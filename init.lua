@@ -363,7 +363,10 @@ require('lazy').setup {
             '^venv/lib/.*site.packages',
             '__pycache__',
             '^target/debug',
-            '^target/release'
+            '^target/release',
+            '^build.*/CMakeFiles/',
+            '^build.*/debug/incremental/',
+            '^ddnet-libs/',
           },
           mappings = {
             i = { ['<C-u>'] = false },
