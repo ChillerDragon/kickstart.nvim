@@ -6,11 +6,20 @@ end, { desc = '[F]ile [T]tree' })
 
 vim.keymap.set('n', '<C-k><C-t>', function()
   -- TODO: use telescope to pick themes
+  --       can be done with
+  --
+  -- vim.cmd('Telescope colorscheme')
+  --
   if vim.o.background == 'dark' then
     vim.o.background = 'light'
   else
     vim.o.background = 'dark'
   end
+  -- if vim.cmd.colorscheme() == 'tokyonight' then
+  --   vim.cmd.colorscheme 'tokyonight-day'
+  -- else
+  --   vim.cmd.colorscheme 'tokyonight'
+  -- end
 end, { desc = 'switch theme (same keybind as vscode)' })
 
 vim.keymap.set('n', 'c', function()
