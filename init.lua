@@ -355,12 +355,15 @@ require('lazy').setup {
           file_ignore_patterns = {
             '^node_modules',
             '^.git',
+            '^.cache',
             '^.mypy_cache',
             '^.ruff_cache',
             '^.pytest_cache',
             '^venv/share/python.wheels/.*.whl',
             '^venv/lib/.*site.packages',
-            '__pycache__'
+            '__pycache__',
+            '^target/debug',
+            '^target/release'
           },
           mappings = {
             i = { ['<C-u>'] = false },
