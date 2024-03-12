@@ -29,11 +29,11 @@ return {
       auto_session_enable_last_session = false,
       log_level = "error",
       auto_session_suppress_dirs = { "~/", "~/Videos", "~/Downloads", "~/Documents"},
-      auto_session_allowed_dirs = {
-        "~/Desktop/git/*",
-        "~/Desktop/git-extern/*",
-        "~/.config/nvim/"
-      },
+      -- auto_session_allowed_dirs = {
+      --   "~/Desktop/git/*",
+      --   "~/Desktop/git-extern/*",
+      --   "~/.config/nvim/"
+      -- },
     }
   end
 }
