@@ -51,9 +51,11 @@ vim.keymap.set('n', 'c', function()
   elseif vim.bo.filetype == 'cpp' then
     run_cmd = 'g++ -ggdb % -o %:r && ./%:r'
     if string.match(filename_full_path, "Desktop/git/ddnet/src") then
-      run_cmd = "cd ~/Desktop/git/ddnet/build/ && make -j$(nproc) && ./DDNet-Server"
+      run_cmd = "cd ~/Desktop/git/ddnet/build/ && make -j$(nproc) "
+      -- run_cmd = run_cmd .. " && ./DDNet-Server"
     elseif string.match(filename_full_path, "Desktop/git/teeworlds/src") then
-      run_cmd = "cd ~/Desktop/git/teeworlds/build/ && make -j$(nproc) && ./teeworlds_srv"
+      run_cmd = "cd ~/Desktop/git/teeworlds/build/ && make -j$(nproc) "
+      -- run_cmd = run_cmd .. " && ./teeworlds_srv"
     end
   elseif vim.bo.filetype == 'haskell' then
     run_cmd = 'ghc % && ./%:r'
