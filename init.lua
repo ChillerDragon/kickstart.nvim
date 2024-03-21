@@ -835,9 +835,9 @@ require('lazy').setup {
         highlight = {
           enable = true,
           disable = { 'bash' },
-          additional_vim_regex_highlighting = { 'ruby' },
+          additional_vim_regex_highlighting = { 'ruby', 'php' },
         },
-        indent = { enable = true, disable = { 'ruby' } },
+        indent = { enable = true, disable = { 'ruby', 'php' } },
       }
 
       -- There are additional nvim-treesitter modules that you can use to interact
