@@ -69,7 +69,7 @@ vim.keymap.set('n', 'c', function()
   elseif vim.bo.filetype == 'typescript' then
     run_cmd = 'npx ts-node %'
   elseif vim.bo.filetype == 'python' then
-    run_cmd = 'PYTHONPATH=. python %'
+    run_cmd = 'PYTHONPATH=. python3 %'
     if string.match(filename, "tests/(.*)_test%.py$") then
       run_cmd = 'python -m pytest %'
     end
