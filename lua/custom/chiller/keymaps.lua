@@ -22,6 +22,36 @@ vim.keymap.set('n', '<C-k><C-t>', function()
   -- end
 end, { desc = 'switch theme (same keybind as vscode)' })
 
+vim.keymap.set('n', ',rt', function()
+  local run_cmd = nil
+  local filename = vim.fn.expand('%')
+  if vim.bo.filetype == 'lua' then
+    run_cmd = 'luacheck %'
+  elseif vim.bo.filetype == 'ruby' then
+    run_cmd = 'rubocop %'
+  elseif vim.bo.filetype == 'javascript' then
+    run_cmd = 'standard %'
+  elseif vim.bo.filetype == 'typescript' then
+    run_cmd = 'npx ts-standard %'
+  elseif vim.bo.filetype == 'python' then
+    local py_linter = 'pylint'
+    -- if vim.fn.executable 'ruff' == 1 then
+    --   py_linter = 'ruff'
+    -- end
+    run_cmd = 'PYTHONPATH=. ' .. py_linter .. ' %'
+  elseif vim.bo.filetype == 'sh' then
+    run_cmd = 'shellcheck %'
+  elseif vim.bo.filetype == 'c' then
+    run_cmd = 'clang-tidy %'
+  elseif vim.bo.filetype == 'cpp' then
+    run_cmd = 'clang-tidy %'
+  end
+  if run_cmd ~= nil then
+    run_cmd = '!printf "\\n\\n" && ' .. run_cmd
+    vim.cmd(run_cmd)
+  end
+end, { desc = '[R]un [T]ests' })
+
 vim.keymap.set('n', 'c', function()
   -- TODO: in vanilla vim i used shellescape('%')
   --       instead of plain %
