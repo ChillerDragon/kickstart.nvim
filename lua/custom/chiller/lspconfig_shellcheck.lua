@@ -21,4 +21,5 @@
 --
 
 require'lspconfig'.bashls.setup{}
+require'lspconfig'.ruby_lsp.setup{}
 
