@@ -101,7 +101,7 @@ vim.keymap.set('n', 'c', function()
   elseif vim.bo.filetype == 'python' then
     run_cmd = 'PYTHONPATH=. python3 %'
     if string.match(filename, "tests/(.*)_test%.py$") then
-      run_cmd = 'python -m pytest %'
+      run_cmd = 'python3 -m pytest %'
     end
   elseif vim.bo.filetype == 'sh' then
     run_cmd = 'bash %'
