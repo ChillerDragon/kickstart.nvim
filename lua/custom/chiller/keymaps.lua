@@ -105,6 +105,8 @@ vim.keymap.set('n', 'c', function()
     end
   elseif vim.bo.filetype == 'sh' then
     run_cmd = 'bash %'
+  elseif vim.bo.filetype == 'swift' then
+    run_cmd = 'swift build'
   elseif vim.bo.filetype == 'c' then
     run_cmd = 'gcc -ggdb % -o %:r && ./%:r'
     run_cmd = cmd_if_make(run_cmd)
