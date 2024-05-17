@@ -3,6 +3,13 @@ vim.keymap.set('n', '<leader>ft', function()
   vim.cmd 'Neotree toggle'
 end, { desc = '[F]ile [T]tree' })
 
+vim.keymap.set("n", "<C-w>z", function()
+  if vim.fn.tabpagenr() == 1 then
+    vim.cmd(":tab split")
+  else
+    vim.cmd(":tab close")
+  end
+end, {})
 
 vim.keymap.set('n', '<C-k><C-t>', function()
   -- TODO: use telescope to pick themes
