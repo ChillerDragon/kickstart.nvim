@@ -10,6 +10,10 @@ function is_teeworlds_like_source()
     return true
   elseif string.match(filename_full_path, "Desktop/git/chillerbot-ux/") then
     return true
+  elseif string.match(filename_full_path, "Desktop/git/chillerbot-zx/") then
+    return true
+  elseif string.match(filename_full_path, "Desktop/git/DDNetPP/") then
+    return true
   end
   return false
 end
