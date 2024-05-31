@@ -86,6 +86,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 
 -- chiller
 require 'custom/chiller/helpers'
+require 'custom/chiller/snippets'
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -712,6 +713,8 @@ require('lazy').setup {
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
+      chiller_snippets(luasnip)
+
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -758,8 +761,8 @@ require('lazy').setup {
           end, { 'i', 's' }),
         },
         sources = {
-          { name = 'nvim_lsp' },
           { name = 'luasnip' },
+          { name = 'nvim_lsp' },
           { name = 'path' },
         },
       }
