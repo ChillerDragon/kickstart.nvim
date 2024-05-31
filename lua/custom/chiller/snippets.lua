@@ -13,9 +13,9 @@ function chiller_snippets(luasnip)
         luasnip.snippet("lt", {
           luasnip.text_node("<%= link_to "),
           luasnip.insert_node(1),
-          luasnip.text_node("root_path, "),
+          luasnip.text_node("'home', "),
           luasnip.insert_node(2),
-          luasnip.text_node("'home' %>")
+          luasnip.text_node("root_path %>")
         }),
         luasnip.snippet("ltd", {
           luasnip.text_node("<%= link_to root_path do %>"),
@@ -64,6 +64,9 @@ function chiller_snippets(luasnip)
         }),
         luasnip.snippet("end", {
           luasnip.text_node({"<% end %>"})
+        }),
+        luasnip.snippet("else", {
+          luasnip.text_node({"<% else %>"})
         }),
         luasnip.snippet("it", {
           luasnip.text_node('<%= image_tag "sample.png", alt: "text" %>')
