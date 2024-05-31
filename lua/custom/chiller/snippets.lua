@@ -13,9 +13,16 @@ function chiller_snippets(luasnip)
         luasnip.snippet("lt", {
           luasnip.text_node("<%= link_to "),
           luasnip.insert_node(1),
-          luasnip.text_node(" , "),
+          luasnip.text_node("root_path, "),
           luasnip.insert_node(2),
-          luasnip.text_node(" %>")
+          luasnip.text_node("'home' %>")
+        }),
+        luasnip.snippet("ltd", {
+          luasnip.text_node("<%= link_to root_path do %>"),
+          luasnip.text_node({"", '  <div class="btn">Home</div>'}),
+          luasnip.insert_node(1),
+          luasnip.text_node({"", ""}),
+          luasnip.text_node("<% end %>")
         }),
         luasnip.snippet("sf", {
           luasnip.text_node("<%= simple_form_for"),
