@@ -1,4 +1,21 @@
 function chiller_snippets(luasnip)
+      luasnip.add_snippets("go", {
+        luasnip.snippet("package", {
+          luasnip.text_node(
+            {
+              "package main",
+              "",
+              'import "fmt"',
+              "",
+              "func main() {",
+              "   val := uint32(6666666)",
+              '   fmt.Printf("val=%v\\n", val)'
+            }
+          ),
+          luasnip.insert_node(1),
+          luasnip.text_node({"", "}"})
+        })
+      })
       luasnip.add_snippets("eruby", {
         luasnip.snippet("pe", {
           luasnip.text_node("<%= "),
