@@ -358,6 +358,7 @@ require('lazy').setup {
         defaults = {
           file_ignore_patterns = {
             '^node_modules',
+            '^dist',
             '^.git',
             '^.cache',
             '^.mypy_cache',
