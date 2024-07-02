@@ -102,17 +102,17 @@ vim.keymap.set('n', 'c', function()
   elseif vim.bo.filetype == 'ruby' then
     run_cmd = 'ruby %'
   elseif vim.bo.filetype == 'go' then
-    run_cmd = 'go run %'
-    -- run_cmd = 'go build'
+    -- run_cmd = 'go run %'
+    run_cmd = 'go build'
     if string.match(filename, "_test%.go$") then
-      run_cmd = 'go test ./...'
+      run_cmd = 'go test'
     end
   elseif vim.bo.filetype == 'javascript' then
     run_cmd = 'node %'
   elseif vim.bo.filetype == 'typescript' then
     run_cmd = 'npx ts-node %'
   elseif vim.bo.filetype == 'python' then
-    run_cmd = 'PYTHONPATH=".:$PYTHONPATH" python3 %'
+    run_cmd = 'PYTHONPATH=. python3 %'
     if string.match(filename, "tests/(.*)_test%.py$") then
       run_cmd = 'python3 -m pytest %'
     end
