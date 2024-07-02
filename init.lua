@@ -374,7 +374,14 @@ require('lazy').setup {
             '^ddnet-libs/',
           },
           mappings = {
-            i = { ['<C-u>'] = false },
+            i = {
+              ['<C-u>'] = false,
+            },
+            -- press escape and then use arrow up down for history
+            n = {
+              ['<Up>'] = require('telescope.actions').cycle_history_next,
+              ['<Down>'] = require('telescope.actions').cycle_history_prev,
+            },
           },
         },
         -- pickers = {}
