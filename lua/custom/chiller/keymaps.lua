@@ -102,8 +102,8 @@ vim.keymap.set('n', 'c', function()
   elseif vim.bo.filetype == 'ruby' then
     run_cmd = 'ruby %'
   elseif vim.bo.filetype == 'go' then
-    -- run_cmd = 'go run %'
-    run_cmd = 'go build ./...'
+    run_cmd = 'go run %'
+    -- run_cmd = 'go build ./...'
     if string.match(filename, "_test%.go$") then
       run_cmd = 'go test ./...'
     end
