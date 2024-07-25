@@ -626,6 +626,7 @@ require('lazy').setup({
         gopls = {},
         pyright = {},
         phpactor = {},
+        asm_lsp = {},
         swift_mesonls = {},
         emmet_ls = {},
         -- rust_analyzer = {},
@@ -971,6 +972,7 @@ require('lazy').setup({
 -- chiller
 require 'custom/chiller/keymaps'
 require 'custom/chiller/lspconfig_shellcheck'
+require 'custom/chiller/chiller_lsp'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
