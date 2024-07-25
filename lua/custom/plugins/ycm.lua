@@ -3,6 +3,14 @@ local function file_exists(name)
    if f~=nil then io.close(f) return true else return false end
 end
 
+-- vim.g["g:ycm_filetype_whitelist"] = "{'asm': 1}"
+-- vim.g["ycm_filetype_blacklist"] = "{'*': 1}"
+
+vim.cmd [[
+let g:ycm_filetype_whitelist = {'asm': 1}
+let g:ycm_filetype_blacklist = {'*': 1}
+]]
+
 return {
   'ycm-core/YouCompleteMe',
   config = function()
