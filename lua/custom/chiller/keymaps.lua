@@ -128,6 +128,8 @@ vim.keymap.set('n', 'c', function()
     run_cmd = 'bash %'
   elseif vim.bo.filetype == 'swift' then
     run_cmd = 'swift build'
+  elseif vim.bo.filetype == 'make' then
+    run_cmd = 'make'
   elseif vim.bo.filetype == 'asm' then
     run_cmd = 'nasm -f elf64 % -o %:r.o && ld -s -o %:r %:r.o && ./%:r'
     run_cmd = cmd_if_make_test(run_cmd)
