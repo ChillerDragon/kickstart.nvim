@@ -11,12 +11,14 @@ let g:ycm_filetype_whitelist = {'asm': 1}
 let g:ycm_filetype_blacklist = {'*': 1}
 ]]
 
-return {
-  'ycm-core/YouCompleteMe',
-  config = function()
-    if file_exists(os.getenv("HOME") .. "/.local/share/nvim/lazy/YouCompleteMe/third_party/ycmd/ycm_core.cpython-311-x86_64-linux-gnu.so") then
-      return
-    end
-    vim.cmd("!python3 ~/.local/share/nvim/lazy/YouCompleteMe/install.py")
-  end
-}
+-- return {
+--   'ycm-core/YouCompleteMe',
+--   config = function()
+--     if file_exists(os.getenv("HOME") .. "/.local/share/nvim/lazy/YouCompleteMe/third_party/ycmd/ycm_core.cpython-311-x86_64-linux-gnu.so") then
+--       return
+--     end
+--     vim.cmd("!python3 ~/.local/share/nvim/lazy/YouCompleteMe/install.py")
+--   end
+-- }
+
+return {}
