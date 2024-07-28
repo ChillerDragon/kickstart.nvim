@@ -79,6 +79,14 @@ vim.keymap.set('n', 'c', function()
     return current_cmd
   end
 
+  local cmd_if_make_test = function (current_cmd)
+    local makefile_path = vim.fn.getcwd() .. "/Makefile"
+    if file_exists(makefile_path) then
+      return 'make && make test'
+    end
+    return current_cmd
+  end
+
   local cmd_if_tw_codebase = function (current_cmd)
     local filename_full_path = vim.fn.expand('%:p')
 
@@ -120,6 +128,9 @@ vim.keymap.set('n', 'c', function()
     run_cmd = 'bash %'
   elseif vim.bo.filetype == 'swift' then
     run_cmd = 'swift build'
+  elseif vim.bo.filetype == 'asm' then
+    run_cmd = 'nasm -f elf64 % -o %:r.o && ld -s -o %:r %:r.o && ./%:r'
+    run_cmd = cmd_if_make_test(run_cmd)
   elseif vim.bo.filetype == 'c' then
     run_cmd = 'gcc -ggdb % -o %:r && ./%:r'
     run_cmd = cmd_if_make(run_cmd)
