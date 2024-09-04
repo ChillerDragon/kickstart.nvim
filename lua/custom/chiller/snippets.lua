@@ -87,6 +87,11 @@ function chiller_snippets(luasnip)
         }),
         luasnip.snippet("it", {
           luasnip.text_node('<%= image_tag "sample.png", alt: "text" %>')
+        }),
+        luasnip.snippet("ts", {
+          luasnip.text_node('<%= turbo_stream_from dom_id('),
+          luasnip.insert_node(1),
+          luasnip.text_node(') %>')
         })
       })
 end
