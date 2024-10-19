@@ -109,6 +109,12 @@ vim.keymap.set('n', 'c', function()
     run_cmd = 'lua %'
   elseif vim.bo.filetype == 'ruby' then
     run_cmd = 'ruby %'
+    if string.match(filename, "(.*)_test%.rb$") then
+      run_cmd = 'rspec %'
+    end
+    if string.match(filename, "(.*)_spec%.rb$") then
+      run_cmd = 'rspec %'
+    end
   elseif vim.bo.filetype == 'go' then
     run_cmd = 'go run %'
     -- run_cmd = 'go build ./...'
