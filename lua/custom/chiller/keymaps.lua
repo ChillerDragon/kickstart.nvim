@@ -98,6 +98,8 @@ vim.keymap.set('n', 'c', function()
     elseif string.match(filename_full_path, "Desktop/git/teeworlds/src") then
       run_cmd = "cd ~/Desktop/git/teeworlds/build/ && make -j$(nproc) "
       -- run_cmd = run_cmd .. " && ./teeworlds_srv"
+    elseif string.match(filename_full_path, "Desktop/git/chillerbot%-zx/src/external/chillerbot%-twbl/src") then
+      run_cmd = "cd ~/Desktop/git/chillerbot-zx/build/ && make -j$(nproc) "
     end
 
     return run_cmd
