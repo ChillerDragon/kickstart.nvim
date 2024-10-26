@@ -102,6 +102,9 @@ vim.keymap.set('n', 'c', function()
       run_cmd = "cd ~/Desktop/git/chillerbot-zx/build/ && make -j$(nproc) "
     elseif string.match(filename_full_path, "Desktop/git/DDNetPP/src/external/DDNetPP%-bots/src") then
       run_cmd = "cd ~/Desktop/git/DDNetPP/build/ && make -j$(nproc) "
+    elseif string.match(filename_full_path, "Desktop/git/TeeworldsBotLib/src") then
+      -- this is not a tw code base but yolo it kinda belongs here
+      run_cmd = "cd ~/Desktop/git/TeeworldsBotLib/build/ && make -j$(nproc) "
     end
 
     return run_cmd
