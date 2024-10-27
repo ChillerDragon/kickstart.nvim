@@ -1,4 +1,12 @@
 function chiller_snippets(luasnip)
+      luasnip.add_snippets("cpp", {
+        luasnip.snippet("rr", {
+          luasnip.text_node({'Right("going right");'})
+        }),
+        luasnip.snippet("ll", {
+          luasnip.text_node({'Left("going left");'})
+        })
+      })
       luasnip.add_snippets("go", {
         luasnip.snippet("package", {
           luasnip.text_node(
