@@ -1,5 +1,10 @@
 function chiller_snippets(luasnip)
       luasnip.add_snippets("cpp", {
+        luasnip.snippet("dbrf", {
+          luasnip.text_node({'DbgRectF(GetPos().x, GetPos().y - 60, "'}),
+          luasnip.insert_node(1),
+          luasnip.text_node(');')
+        }),
         luasnip.snippet("rr", {
           luasnip.text_node({'Right("going right");'})
         }),
