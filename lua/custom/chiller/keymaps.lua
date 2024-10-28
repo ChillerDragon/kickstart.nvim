@@ -87,6 +87,18 @@ vim.keymap.set('n', 'c', function()
     return current_cmd
   end
 
+  local cmd_if_known_java_project = function (current_cmd)
+    local filename_full_path = vim.fn.expand('%:p')
+
+    local run_cmd = current_cmd
+
+    if string.match(filename_full_path, "Desktop/git/coffeeworlds/lib/src") then
+      run_cmd = "cd ~/Desktop/git/coffeeworlds && ./gradlew test "
+    end
+
+    return run_cmd
+  end
+
   local cmd_if_tw_codebase = function (current_cmd)
     local filename_full_path = vim.fn.expand('%:p')
 
@@ -153,6 +165,9 @@ vim.keymap.set('n', 'c', function()
     run_cmd = 'g++ -ggdb % -o %:r && ./%:r'
     run_cmd = cmd_if_make(run_cmd)
     run_cmd = cmd_if_tw_codebase(run_cmd)
+  elseif vim.bo.filetype == 'java' then
+    run_cmd = 'echo there is no java support yet'
+    run_cmd = cmd_if_known_java_project(run_cmd)
   elseif vim.bo.filetype == 'haskell' then
     run_cmd = 'ghc % && ./%:r'
   end
