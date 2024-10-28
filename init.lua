@@ -668,8 +668,10 @@ require('lazy').setup({
         pyright = {},
         phpactor = {},
         asm_lsp = {},
-        swift_mesonls = {},
+        -- swift_mesonls = {}, -- this one is apparently deprecated in favor of mesonlsp
+        -- mesonlsp = {}, -- ipairs error
         emmet_ls = {},
+        jdtls = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
