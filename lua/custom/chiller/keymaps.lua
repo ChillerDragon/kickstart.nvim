@@ -92,7 +92,7 @@ vim.keymap.set('n', 'c', function()
 
     local run_cmd = current_cmd
 
-    if string.match(filename_full_path, "Desktop/git/coffeeworlds/lib/src") then
+    if string.match(filename_full_path, "Desktop/git/coffeeworlds") then
       run_cmd = "cd ~/Desktop/git/coffeeworlds && ./gradlew test "
     end
 
