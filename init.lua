@@ -411,6 +411,14 @@ require('lazy').setup({
             '^build.*/CMakeFiles/',
             '^build.*/debug/incremental/',
             '^ddnet-libs/',
+            -- java stuff for coffeeworlds
+            '.class$',
+            '^gradle/',
+            '/build/reports/',
+            '/build/tmp/',
+            '/build/test.results/',
+            '^.gradle',
+            '^buildSrc', -- this one should probably not be ignored but its annoying
           },
           mappings = {
             i = {
