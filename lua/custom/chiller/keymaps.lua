@@ -140,6 +140,14 @@ vim.keymap.set('n', 'c', function()
     if string.match(filename, "_test%.go$") then
       run_cmd = 'go test ./...'
     end
+  elseif vim.bo.filetype == 'rust' then
+    run_cmd = 'rustc % && ./%:r'
+    if string.match(filename, "src/(.*)%.rs$") then
+      run_cmd = 'cargo build'
+    end
+    if string.match(filename, "lib/(.*)%.rs$") then
+      run_cmd = 'cargo build'
+    end
   elseif vim.bo.filetype == 'javascript' then
     run_cmd = 'node %'
   elseif vim.bo.filetype == 'typescript' then
