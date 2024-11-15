@@ -66,9 +66,21 @@ vim.keymap.set('n', 'c', function()
   --       if the current file path is funny it should not break
   --       or do anything unexpected
 
+  -- returns true for folders too in linux
+  -- cuz you know ... everything is a file xd
   local file_exists = function (name)
     local f = io.open(name, "r")
     return f ~= nil and io.close(f)
+  end
+
+  local cmd_if_cmake_project = function (current_cmd)
+    local makefile_path = vim.fn.getcwd() .. "/CMakeLists.txt"
+    local build_path = vim.fn.getcwd() .. "/build"
+
+    if file_exists(makefile_path) and file_exists(build_path) then
+      return 'cd ' .. build_path .. ' && make -j$(nproc)'
+    end
+    return current_cmd
   end
 
   local cmd_if_make = function (current_cmd)
@@ -168,9 +180,11 @@ vim.keymap.set('n', 'c', function()
     run_cmd = cmd_if_make_test(run_cmd)
   elseif vim.bo.filetype == 'c' then
     run_cmd = 'gcc -ggdb % -o %:r && ./%:r'
+    run_cmd = cmd_if_cmake_project(run_cmd)
     run_cmd = cmd_if_make(run_cmd)
   elseif vim.bo.filetype == 'cpp' then
     run_cmd = 'g++ -ggdb % -o %:r && ./%:r'
+    run_cmd = cmd_if_cmake_project(run_cmd)
     run_cmd = cmd_if_make(run_cmd)
     run_cmd = cmd_if_tw_codebase(run_cmd)
   elseif vim.bo.filetype == 'java' then
