@@ -29,6 +29,23 @@ function chiller_snippets(luasnip)
           luasnip.text_node({"", "}"})
         })
       })
+      luasnip.add_snippets("ruby", {
+        luasnip.snippet("respond_to", {
+          luasnip.text_node(
+            {
+              "respond_to do |format|",
+              "  if @foo.save",
+              "    format.html { redirect_to root_path }",
+              "    format.json # json view",
+              "  else",
+              "    format.html { render :new, status: :unprocessable_entity }",
+              "    format.json # json view",
+              "  end",
+              "end",
+            }
+          )
+        })
+      })
       luasnip.add_snippets("eruby", {
         luasnip.snippet("pe", {
           luasnip.text_node("<%= "),
