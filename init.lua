@@ -401,6 +401,7 @@ require('lazy').setup({
             '^.git',
             '^.cache',
             '^.mypy_cache',
+            '/.mypy_cache/',
             '^.ruff_cache',
             '^.pytest_cache',
             '^venv/share/python.wheels/.*.whl',
