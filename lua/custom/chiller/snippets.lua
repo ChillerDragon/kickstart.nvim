@@ -90,7 +90,7 @@ function chiller_snippets(luasnip)
           luasnip.text_node({"<% end %>"})
         }),
         luasnip.snippet("fw", {
-          luasnip.text_node('<%= form_with url: "/search", method: :get do |f| %>'),
+          luasnip.text_node('<%= form_with model: @model, url: "/search", method: :get do |f| %>'),
           luasnip.text_node({"", ""}),
           luasnip.insert_node(1),
           luasnip.text_node({'', '  <%= form.label :query, "Search for:" %>'}),
