@@ -400,6 +400,7 @@ require('lazy').setup({
             '^dist',
             '^.git',
             '^.cache',
+            '^tmp/cache',
             '^.mypy_cache',
             '/.mypy_cache/',
             '^.ruff_cache',
