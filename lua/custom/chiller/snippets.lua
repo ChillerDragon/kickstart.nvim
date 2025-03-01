@@ -118,6 +118,9 @@ function chiller_snippets(luasnip)
         luasnip.snippet("it", {
           luasnip.text_node('<%= image_tag "sample.png", alt: "text" %>')
         }),
+        luasnip.snippet("cl", {
+          luasnip.text_node('<%= cl_image_tag @model.photo.key, alt: "text" if @model.photo.attached? %>')
+        }),
         luasnip.snippet("ts", {
           luasnip.text_node('<%= turbo_stream_from dom_id('),
           luasnip.insert_node(1),
