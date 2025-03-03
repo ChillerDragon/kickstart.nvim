@@ -121,6 +121,13 @@ function chiller_snippets(luasnip)
         luasnip.snippet("cl", {
           luasnip.text_node('<%= cl_image_tag @model.photo.key, alt: "text" if @model.photo.attached? %>')
         }),
+        luasnip.snippet("tf", {
+          luasnip.text_node('<%= turbo_frame_tag '),
+          luasnip.insert_node(1),
+          luasnip.text_node(' do %>'),
+          luasnip.text_node({'', ''}),
+          luasnip.text_node({"<% end %>"})
+        }),
         luasnip.snippet("ts", {
           luasnip.text_node('<%= turbo_stream_from dom_id('),
           luasnip.insert_node(1),
