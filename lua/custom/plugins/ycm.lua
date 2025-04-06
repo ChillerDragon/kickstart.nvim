@@ -20,6 +20,10 @@ return {
       if file_exists(ycmd_so) then
         return
       end
+      ycmd_so = os.getenv("HOME") .. "/.local/share/nvim/lazy/YouCompleteMe/third_party/ycmd/ycm_core.cpython-" .. so_version .. "-darwin.so"
+      if file_exists(ycmd_so) then
+        return
+      end
     end
     vim.cmd("!python3 ~/.local/share/nvim/lazy/YouCompleteMe/install.py")
   end
