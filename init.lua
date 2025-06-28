@@ -437,6 +437,7 @@ require('lazy').setup({
             '^target/release',
             '^build.*/CMakeFiles/',
             '^build.*/debug/incremental/',
+            '^build.*/_deps/',
             '^ddnet-libs/',
             -- java stuff for coffeeworlds
             '.class$',
