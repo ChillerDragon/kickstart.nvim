@@ -742,6 +742,7 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         gopls = {},
+        superhtml = {},
         rust_analyzer = {},
         pyright = {},
         phpactor = {},
