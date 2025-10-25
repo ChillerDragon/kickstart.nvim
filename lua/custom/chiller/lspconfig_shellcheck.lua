@@ -20,6 +20,5 @@
 --  npm run reinstall-server
 --
 
-require'lspconfig'.bashls.setup{}
-require'lspconfig'.ruby_lsp.setup{}
-
+vim.lsp.config('bashls', {})
+vim.lsp.config('ruby_lsp', {})
