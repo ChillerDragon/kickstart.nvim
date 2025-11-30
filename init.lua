@@ -425,6 +425,7 @@ require('lazy').setup({
             '^dist',
             '^.git',
             '^.cache',
+            '^.sass[-]cache', -- jekyll .sass-cache/
             '^tmp/cache',
             '^.mypy_cache',
             '/.mypy_cache/',
