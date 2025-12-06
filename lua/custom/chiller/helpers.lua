@@ -48,7 +48,7 @@ function chiller_telescope_file_ignore_patterns()
     '^build.*/CMakeFiles/',
     '^build.*/debug/incremental/',
     '^build.*/_deps/',
-    '^ddnet-libs/',
+    '^ddnet[-]libs/',
     -- java stuff for coffeeworlds
     '.class$',
     '^gradle/',
