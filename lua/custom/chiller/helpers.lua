@@ -6,11 +6,11 @@ function is_teeworlds_like_source()
     return true
   elseif string.match(filename_full_path, "Desktop/git/teeworlds/") then
     return true
-  elseif string.match(filename_full_path, "Desktop/git/ddnet-insta/") then
+  elseif string.match(filename_full_path, "Desktop/git/ddnet%-insta/") then
     return true
-  elseif string.match(filename_full_path, "Desktop/git/chillerbot-ux/") then
+  elseif string.match(filename_full_path, "Desktop/git/chillerbot%-ux/") then
     return true
-  elseif string.match(filename_full_path, "Desktop/git/chillerbot-zx/") then
+  elseif string.match(filename_full_path, "Desktop/git/chillerbot%-zx/") then
     return true
   elseif string.match(filename_full_path, "Desktop/git/DDNetPP/") then
     return true
@@ -28,8 +28,37 @@ function teeworlds_src_dirs()
   }
 end
 
+-- merges two flat tables rewriting all keys
+-- and returning the merged copy
+local merge = function(a, b)
+  local both = {}
+  local counter = 1
+  for _, v in pairs(a) do
+    both[counter] = v
+    counter = counter + 1
+  end
+  for _, v in pairs(b) do
+    both[counter] = v
+    counter = counter + 1
+  end
+  return both
+end
+
 function chiller_telescope_file_ignore_patterns()
-  return {
+  local ignores = {}
+
+  -- -- can not use filename because its empty
+  -- -- when i just open vim in the project without
+  -- -- providing a file
+  -- local filename_full_path = vim.fn.expand('%:p')
+  local cwd = vim.fn.getcwd() .. "/"
+  if string.match(cwd, "Desktop/git/ddnet%-insta/") then
+    ignores = merge(ignores, {
+      'src/game/client'
+    })
+  end
+
+  ignores = merge(ignores, {
     '^node_modules',
     '^dist',
     '^.git',
@@ -57,6 +86,7 @@ function chiller_telescope_file_ignore_patterns()
     '/build/test.results/',
     '^.gradle',
     '^buildSrc', -- this one should probably not be ignored but its annoying
-  }
+  })
+  return ignores
 end
 
