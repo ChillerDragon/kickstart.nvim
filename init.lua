@@ -715,7 +715,7 @@ require('lazy').setup({
       local servers = {
         clangd = {},
         gopls = {},
-        rubocop = {},
+        -- rubocop = {},
         superhtml = {},
         rust_analyzer = {},
         pyright = {},
