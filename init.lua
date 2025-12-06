@@ -420,35 +420,7 @@ require('lazy').setup({
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
-          file_ignore_patterns = {
-            '^node_modules',
-            '^dist',
-            '^.git',
-            '^.cache',
-            '^.sass[-]cache', -- jekyll .sass-cache/
-            '^tmp/cache',
-            '^.mypy_cache',
-            '/.mypy_cache/',
-            '^.ruff_cache',
-            '^.pytest_cache',
-            '^venv/share/python.wheels/.*.whl',
-            '^venv/lib/.*site.packages',
-            '__pycache__',
-            '^target/debug',
-            '^target/release',
-            '^build.*/CMakeFiles/',
-            '^build.*/debug/incremental/',
-            '^build.*/_deps/',
-            '^ddnet-libs/',
-            -- java stuff for coffeeworlds
-            '.class$',
-            '^gradle/',
-            '/build/reports/',
-            '/build/tmp/',
-            '/build/test.results/',
-            '^.gradle',
-            '^buildSrc', -- this one should probably not be ignored but its annoying
-          },
+          file_ignore_patterns = chiller_telescope_file_ignore_patterns(),
           mappings = {
             i = {
               ['<C-u>'] = false,
