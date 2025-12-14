@@ -77,6 +77,8 @@ function chiller_telescope_file_ignore_patterns()
     '^build.*/CMakeFiles/',
     '^build.*/debug/incremental/',
     '^build.*/_deps/',
+    '^build[-].*/x86_64[-]unknown[-]linux[-]gnu/debug/',
+    '^build[-].*/data/countryflags',
     '^ddnet[-]libs/',
     -- java stuff for coffeeworlds
     '.class$',
