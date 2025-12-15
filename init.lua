@@ -720,6 +720,7 @@ require('lazy').setup({
         rust_analyzer = {},
         pyright = {},
         phpactor = {},
+        typos_lsp = {},
         asm_lsp = {},
         -- swift_mesonls = {}, -- this one is apparently deprecated in favor of mesonlsp
         -- mesonlsp = {}, -- ipairs error
