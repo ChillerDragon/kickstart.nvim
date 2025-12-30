@@ -18,6 +18,18 @@ function is_teeworlds_like_source()
   return false
 end
 
+function is_ddnet_protocol_source()
+  local cwd = vim.fn.getcwd() .. "/"
+  if string.match(cwd, "Desktop/git/ddnet_protocol/") then
+    return true
+  end
+  return false
+end
+
+if is_ddnet_protocol_source() then
+  vim.opt.colorcolumn = "80"
+end
+
 function teeworlds_src_dirs()
   return {
     "src",
