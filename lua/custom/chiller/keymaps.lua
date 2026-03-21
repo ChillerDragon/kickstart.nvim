@@ -138,6 +138,7 @@ vim.keymap.set('n', 'c', function()
   local filename = vim.fn.expand('%')
   if vim.bo.filetype == 'lua' then
     run_cmd = 'lua %'
+    run_cmd = cmd_if_make(run_cmd)
   elseif vim.bo.filetype == 'ruby' then
     run_cmd = 'ruby %'
     if string.match(filename, "(.*)_test%.rb$") then
