@@ -22,18 +22,14 @@ vim.o.sessionoptions="blank,buffers,curdir"
 -- not sure how that is done
 -- does telescope preload treesitter?
 
-return {
-  'rmagatti/auto-session',
-  config = function()
-    require("auto-session").setup {
-      auto_session_enable_last_session = false,
-      log_level = "error",
-      auto_session_suppress_dirs = { "~/", "~/Videos", "~/Downloads", "~/Documents"},
-      -- auto_session_allowed_dirs = {
-      --   "~/Desktop/git/*",
-      --   "~/Desktop/git-extern/*",
-      --   "~/.config/nvim/"
-      -- },
-    }
-  end
+vim.pack.add { 'https://github.com/rmagatti/auto-session' }
+require("auto-session").setup {
+  auto_session_enable_last_session = false,
+  log_level = "error",
+  auto_session_suppress_dirs = { "~/", "~/Videos", "~/Downloads", "~/Documents"},
+  -- auto_session_allowed_dirs = {
+  --   "~/Desktop/git/*",
+  --   "~/Desktop/git-extern/*",
+  --   "~/.config/nvim/"
+  -- },
 }
