@@ -364,6 +364,8 @@ do
       topdelete = { text = '‾' }, ---@diagnostic disable-line: missing-fields
       changedelete = { text = '~' }, ---@diagnostic disable-line: missing-fields
     },
+    -- chiller: blame on
+    current_line_blame = true,
   }
 
   -- Useful plugin to show you pending keybinds.
